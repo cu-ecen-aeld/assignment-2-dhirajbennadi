@@ -6,23 +6,23 @@
 
 int main(int argc, char **argv)
 {
+#ifdef LOCAL_DEBUGGING
     int count = 0;
     int temp = argc;
-
-    openlog("writer.c" , LOG_PID, LOG_USER);
-
-    // while(temp)
-    // {
-    //     printf("Argument Count = %d Argument = %s\n", count , argv[count]);
-    //     count++;
-    //     temp--;
-    // }
+#endif
 
     /*Setting Up Syslog*/
+    openlog("writer.c" , LOG_PID, LOG_USER);
+
+#ifdef LOCAL_DEBUGGING
+    while(temp)
+    {
+        printf("Argument Count = %d Argument = %s\n", count , argv[count]);
+        count++;
+        temp--;
+    }
+#endif
     
-
-    //printf("Dhiraj Argument Count = %d\n", argc);
-
     if(argc < 3 || argc > 3)
     {
         syslog(LOG_ERR , "Insufficient Arguments or More number of arguments passed to the program");
