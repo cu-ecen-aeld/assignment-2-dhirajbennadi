@@ -33,8 +33,8 @@ int main(int argc, char **argv)
     //printf("%s\n", writefile);
     //printf("%s\n", writestr);
 
-    char *base;
-    base = basename(writefile);
+    //char *base;
+    //base = basename(writefile);
 
     
     FILE *filePointer; 

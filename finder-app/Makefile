@@ -1,5 +1,6 @@
 INCLUDE_DIRS = 
 LIB_DIRS = 
+CFLAGS=-Wall
 #CC=aarch64-none-linux-gnu-gcc
 #CC=gcc
 
@@ -26,4 +27,4 @@ writer: writer.o
 	$(CC) -o $@ $<
 
 .c.o:
-	$(CC) -c $<
+	$(CC) $(CFLAGS) -c $<
