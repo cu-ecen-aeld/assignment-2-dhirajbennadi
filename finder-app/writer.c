@@ -30,11 +30,16 @@ int main(int argc, char **argv)
         //return 1;
     }
 
-    char writefile[100];
-    char writestr[100];
+    /*TODO: Improve on this, what is the string to be written is more 100 characters*/
+    /*The copy is done for reability purposes*/
+    // char writefile[100];
+    // char writestr[100];
 
-    strcpy(writefile , argv[1]);
-    strcpy(writestr , argv[2]);
+    // strcpy(writefile , argv[1]);
+    // strcpy(writestr , argv[2]);
+
+    char *writefile = argv[1];
+    char *writestr = argv[2];
 
     //printf("%s\n", writefile);
     //printf("%s\n", writestr);
@@ -60,6 +65,9 @@ int main(int argc, char **argv)
     fclose(filePointer);
 
     //printf("%s\n", base);
+
+    /*Closing Syslog*/
+    closelog();
 
     return 0;
 }
