@@ -59,10 +59,20 @@ int main(int argc, char **argv)
         //return 1;
     }
 
-    fputs(writestr, filePointer);
+    int writeStatus = fputs(writestr, filePointer);
+    if(writeStatus == EOF)
+    {
+        syslog(LOG_ERR , "The %s could not be written to %s", writestr, writefile);
+    }
     syslog(LOG_DEBUG, "Writing %s to %s", writestr , writefile);
 
-    fclose(filePointer);
+    int closestatus = fclose(filePointer);
+
+    if(closestatus == EOF)
+    {
+        syslog(LOG_ERR , "The %s could not be closed", writefile);
+    }
+
 
     //printf("%s\n", base);
 
